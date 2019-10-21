@@ -240,6 +240,13 @@ AS
 						SET @V_TEXT = 'POLYGON((X.3 Y.5, X.5 Y.5, X.5 Y.6, X.3 Y.6, X.3 Y.5))'
 						SET @V_CHARACTER = @V_CHARACTER.STSymDifference(geometry::STGeomFromText(DBO.FN_REPLACE_XY(@V_TEXT, @V_CHAR_POSITION, @V_LINE),0))
 					END
+				ELSE IF @V_CHARACTER_INPUT = '9'
+					BEGIN
+						SET @V_TEXT = 'POLYGON((X.2 Y.1, X.5 Y.1, X.5 Y.2, X.6 Y.2, X.6 Y.3, X.7 Y.3, X.7 Y.6, X.6 Y.6, X.6 Y.7, X.2 Y.7, X.2 Y.6, X.1 Y.6, X.1 Y.5, X.2 Y.5, X.2 Y.4, X.5 Y.4, X.5 Y.3, X.4 Y.3, X.4 Y.2, X.2 Y.2, X.2 Y.1))'
+						SET @V_CHARACTER = geometry::STGeomFromText(DBO.FN_REPLACE_XY(@V_TEXT, @V_CHAR_POSITION, @V_LINE),0)
+						SET @V_TEXT = 'POLYGON((X.3 Y.5, X.5 Y.5, X.5 Y.6, X.3 Y.6, X.3 Y.5))'
+						SET @V_CHARACTER = @V_CHARACTER.STSymDifference(geometry::STGeomFromText(DBO.FN_REPLACE_XY(@V_TEXT, @V_CHAR_POSITION, @V_LINE),0))
+					END
 				ELSE IF @V_CHARACTER_INPUT = ':'
 					BEGIN
 						SET @V_TEXT = 'POLYGON((X.3 Y.1, X.5 Y.1, X.5 Y.3, X.3 Y.3, X.3 Y.1))'
